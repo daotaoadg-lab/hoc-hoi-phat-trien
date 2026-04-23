@@ -271,84 +271,6 @@
         .card:nth-child(2) { animation-delay: 0.2s; }
         .card:nth-child(3) { animation-delay: 0.3s; }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 3% auto;
-            padding: 0;
-            border-radius: 15px;
-            width: 95%;
-            max-width: 1000px;
-            max-height: 90vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            background: #1e40af;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.3s;
-        }
-
-        .close-btn:hover {
-            opacity: 0.7;
-        }
-
-        .modal-body {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        .modal-body iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            zoom: 1;
-            transform: scale(1);
-        }
-
         .open-btn {
             display: inline-flex;
             align-items: center;
@@ -378,7 +300,7 @@
                     <span class="badge">2 MỤC</span>
                 </div>
                 <div class="items-list">
-                    <a href="#" class="item" onclick="openModal('form1', 'Check-in Trước Buổi Học'); return false;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQcQ5Fww5dWhcvJkCta451cfI0E7EVWBjEJ-C8xfWt84TzCA/viewform?usp=sharing&ouid=103759708283613394903" target="_blank" class="item">
                         <div class="item-icon">✓</div>
                         <div class="item-content">
                             <h3>Check-in Trước Buổi Học</h3>
@@ -387,7 +309,7 @@
                         <div class="item-arrow">→</div>
                     </a>
 
-                    <a href="#" class="item" onclick="openModal('form2', 'Feedback Sau Buổi Học'); return false;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsxTNv1MLCjLfzF_pDwu66GUKPx3Q0a8oDnc9R6Cu35cZSIw/viewform?usp=sharing&ouid=103759708283613394903" target="_blank" class="item">
                         <div class="item-icon">📝</div>
                         <div class="item-content">
                             <h3>Feedback Sau Buổi Học</h3>
@@ -406,7 +328,7 @@
                     <span class="badge">1 MỤC</span>
                 </div>
                 <div class="items-list">
-                    <a href="#" class="item" onclick="openModal('form3', 'Ghi Nhận Giờ Đào Tạo'); return false;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6dRVACA9GLBNRLRTR6VdF7CCaECJxBoQp-_D-Ul9vCnSuVw/viewform?usp=sharing&ouid=103759708283613394903" target="_blank" class="item">
                         <div class="item-icon">🎯</div>
                         <div class="item-content">
                             <h3>Ghi Nhận Giờ Đào Tạo</h3>
@@ -423,70 +345,5 @@
             <p>© 2024 Học Hỏi & Phát Triển Cùng Nhau - Nền tảng chia sẻ kiến thức toàn công ty</p>
         </div>
     </div>
-
-    <!-- Modal for Forms -->
-    <div id="formModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Form Title</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <iframe id="formFrame" src="" title="Form"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const forms = {
-            form1: {
-                title: '✓ Check-in Trước Buổi Học',
-                url: 'https://docs.google.com/forms/d/e/1FAIpQLSeQcQ5Fww5dWhcvJkCta451cfI0E7EVWBjEJ-C8xfWt84TzCA/viewform?usp=sharing&ouid=103759708283613394903'
-            },
-            form2: {
-                title: '📝 Feedback Sau Buổi Học',
-                url: 'https://docs.google.com/forms/d/e/1FAIpQLSdsxTNv1MLCjLfzF_pDwu66GUKPx3Q0a8oDnc9R6Cu35cZSIw/viewform?usp=sharing&ouid=103759708283613394903'
-            },
-            form3: {
-                title: '🎯 Ghi Nhận Giờ Đào Tạo',
-                url: 'https://docs.google.com/forms/d/e/1FAIpQLSd6dRVACA9GLBNRLRTR6VdF7CCaECJxBoQp-_D-Ul9vCnSuVw/viewform?usp=sharing&ouid=103759708283613394903'
-            }
-        };
-
-        function openModal(formId, title) {
-            const modal = document.getElementById('formModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const formFrame = document.getElementById('formFrame');
-            
-            if (forms[formId]) {
-                modalTitle.textContent = forms[formId].title;
-                formFrame.src = forms[formId].url;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('formModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('formFrame').src = '';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('formModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
 </body>
 </html>
